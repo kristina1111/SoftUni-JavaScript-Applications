@@ -1,0 +1,2 @@
+# SoftUni-JavaScript-Applications
+Here are all the exercises from the SoftUni course JavaScript Applications - HTTP, REST, jQuery AJAX, Asynchronous programming and promises, async / await, Web workers, Creating single-page app with jQuery, AJAX, REST and Kinvey (without framework), Templating with Mustache and Handlebars, Programming Patterns. Routing with Sammy, JS tools and libraries: build tools (grunt / gulp), minify, uglify, ESLint, ElectronJS, lodash.
