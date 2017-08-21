@@ -1,0 +1,54 @@
+<div class="content">
+    {{> navigation }}
+    <section id="viewComments">
+        <div class="post">
+            <div class="col thumbnail">
+                <a href="{{post.url}}">
+                    <img src="{{post.imageUrl}}">
+                </a>
+            </div>
+            <div class="post-content">
+                <div class="title">
+                    <a href="{{post.url}}">
+                        {{post.title}}
+                    </a>
+                </div>
+                <div class="details">
+                    <p>{{post.description}}</p>
+                    <div class="info">
+                        submitted {{createdBefore post._kmd.ect}} ago by {{post.author}}
+                    </div>
+                    <div class="controls">
+                        <ul>
+                            {{#ifCond post.author "==" username}}
+                                <li class="action"><a class="editLink" href="#/editPost/:{{post._id}}">edit</a></li>
+                                <li class="action"><a class="deleteLink" href="#/deletePost/:{{post._id}}">delete</a>
+                                </li>
+                            {{/ifCond}}
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="post post-content">
+            <form id="commentForm" method="POST" action="#/comment/:{{post._id}}">
+                <label>Comment</label>
+                <textarea name="content" type="text"></textarea>
+                <input type="submit" value="Add Comment" id="btnPostComment">
+            </form>
+        </div>
+        {{#each comments }}
+            <article class="post post-content">
+                <p>{{content}}</p>
+                <div class="info">
+                    submitted {{createdBefore _kmd.ect}} ago by {{author}}
+                    {{#ifCond author "==" ../username}}|
+                        <a href="#/comments/:{{../post._id}}" class="deleteLink" data-comment-id="{{_id}}" data-post-id="{{../post._id}}">delete</a>
+                    {{/ifCond}}
+                </div>
+            </article>
+        {{/each}}
+    </section>
+</div>
