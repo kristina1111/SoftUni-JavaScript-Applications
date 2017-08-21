@@ -36,7 +36,7 @@ function attachEvents() {
 
                 Promise.all([todayForecastPromise, upcomingForecastPromise])
                     .then(renderInformation)
-                    .catch(handleError);;
+                    .catch(handleError);
 
                 function renderInformation([todayForecast, upcomingForecast]) {
                     // console.dir(todayForecast);

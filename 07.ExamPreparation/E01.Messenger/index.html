@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Messages</title>
+    <!-- External styles -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="./styles/messages.css">
+
+    <!-- External Libraries -->
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+    <script src="../../node_modules/sammy/lib/min/sammy-0.7.6.min.js"></script>
+    <script src="../../node_modules/sammy/lib/plugins/sammy.handlebars.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<header id="menu">
+
+</header>
+<div class="notification">
+    <section id="loadingBox" class="loadingBox">Loading ...</section>
+
+    <section id="infoBox" class="infoBox">Info</section>
+
+    <section id="errorBox" class="errorBox"><span class="notification-text"></span><span
+            class="close-symbol">&#10006</span>
+    </section>
+</div>
+<div id="main">
+
+</div>
+<footer>
+
+</footer>
+<!-- Custom modules -->
+<script src="./scripts/services/sessionHandler.js"></script>
+<script src="./scripts/services/requester.js"></script>
+<script src="./scripts/services/authenticator.js"></script>
+<script src="./scripts/services/notificationHandler.js"></script>
+<script src="./scripts/controller/viewManager.js"></script>
+<!--<script src="./scripts/services/teamService.js"></script>-->
+<script src="./scripts/controller/userManager.js"></script>
+<script src="./scripts/services/helperRegister.js"></script>
+<script src="./scripts/services/queryManager.js"></script>
+<script src="./scripts/services/messageService.js"></script>
+<script src="./scripts/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{{#isAuthenticated}}
+    <section id="viewUserHome">
+        <h1 id="viewUserHomeHeading">Welcome, {{username}}!</h1>
+        <a href="#/receivedMessages" id="linkUserHomeMyMessages">My Messages</a>
+        <a href="#/sendMessage" id="linkUserHomeSendMessage">Send Message</a>
+        <a href="#/sentMessages" id="linkUserHomeArchiveSent">Archive (Sent)</a>
+    </section>
+{{else}}
+    <section id="viewAppHome">
+        <h1>Welcome</h1>
+        Welcome to our messaging system.
+    </section>
+{{/isAuthenticated}}

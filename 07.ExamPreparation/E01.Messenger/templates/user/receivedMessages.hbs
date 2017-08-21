@@ -1,0 +1,23 @@
+<section id="viewMyMessages">
+    <h1>My Messages</h1>
+    <div class="messages" id="myMessages">
+        <table>
+            <thead>
+            <tr>
+                <th>From</th>
+                <th>Message</th>
+                <th>Date Received</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each messages}}
+            <tr>
+                <td>{{formatName senderName senderUsername}}</td>
+                <td>{{text}}</td>
+                <td>{{formatTime _kmd.ect}}</td>
+            </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</section>

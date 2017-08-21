@@ -1,0 +1,24 @@
+<section id="viewListAds" class="viewAds">
+    <h1>Products</h1>
+    <div id="ads" class="ads container">
+        <div class="row">
+            {{#each products}}
+                <div class="ad-container col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
+                    <div class="ad-body">
+                        <div class="ad-info">
+                            <div class="ad-image link-product-page" data-id="{{_id}}"><img src="{{imageUrl}}" alt="">
+                            </div>
+                            <div><span>Product name: </span>{{name}}</div>
+                            <div><span>Description: </span>{{description}}</div>
+                            <div><span>Price: </span><span>{{formatMoney "2" "," price}}</span></div>
+                            <div><span>Date published: </span><span>{{formatTime _kmd.ect}}</span></div>
+                            <div><button data-id="{{_id}}">Purchase</button></div>
+                        </div>
+                    </div>
+                </div>
+            {{else}}
+                <p>There are no products published yet</p>
+            {{/each}}
+        </div>
+    </div>
+</section>
