@@ -5,8 +5,8 @@
 let requester = (function () {
     let constants = {
         baseUrl: 'https://baas.kinvey.com/',
-        appKey: 'kid_rJBvqWvOZ',
-        appSecret: '59de0ecc11c9428bb170e781efd4ac32',
+        appKey: 'kid_SkuID6tu-',
+        appSecret: '8e2594cbad55428facfdcf49ec12e297',
         templatesPath: './templates/',
         templateExtension: '.hbs'
     };

@@ -1,6 +1,7 @@
-let userManager = (function () {
-    function handleLogin(dataForLogin) {
+let userController = (function () {
+    function handleLogin(context) {
         // some validation
+        let dataForLogin = context.params;
         if (dataForLogin.username == '') {
             notificationHandler.showError("Please enter valid username");
             return;
@@ -10,11 +11,22 @@ let userManager = (function () {
             return;
         }
 
-        return authenticator.login(dataForLogin);
+        authenticator.login(dataForLogin)
+            .then(function (userData) {
+                successLogin(userData);
+                context.username = sessionHandler.getUsername();
+                context.redirect('#/allPosts')
+            })
+            .catch(notificationHandler.handleError);
     }
 
-    function handleLogout() {
-        return authenticator.logout();
+    function handleLogout(context) {
+        authenticator.logout()
+            .then(function () {
+                successLogout();
+                context.redirect('#/home');
+            })
+            .catch(notificationHandler.handleError);
     }
 
     function successLogout() {
@@ -23,21 +35,24 @@ let userManager = (function () {
         viewManager.manageHeader();
     }
 
-    function handleRegister(dataForRegister) {
-
-        console.dir(dataForRegister);
+    function handleRegister(context) {
+        let dataForRegister = context.params;
         // some validation
         if (!validator.validateUsername(dataForRegister.username)) {
-            console.log("YESS");
             return;
         }
         if (!validator.validatePassword(dataForRegister.password, dataForRegister.repeatPass)) {
-            console.log("YESS");
             return;
         }
         delete dataForRegister.repeatPass;
-        // return promise
-        return authenticator.register(dataForRegister);
+
+        authenticator.register(dataForRegister)
+            .then(function (newUserInfo) {
+                successRegister(newUserInfo);
+                context.username = newUserInfo.username;
+                context.redirect('#/allPosts');
+            })
+            .catch(notificationHandler.handleError);
 
     }
 
@@ -53,20 +68,10 @@ let userManager = (function () {
         viewManager.manageHeader();
     }
 
-    function handleChangingTeam(userDataFromDb, teamId) {
-        let userData = userDataFromDb;
-        userData.teamId = teamId;
-        return requester.update('user', sessionHandler.getUserId(), userData);
-    }
-
     return {
         handleLogin,
         handleLogout,
         handleRegister,
-        successLogin,
-        successLogout,
-        successRegister,
-        handleChangingTeam
     }
 
 
